@@ -1,5 +1,78 @@
 \section{Tangent Vectors $\R^n$ as Derivations}
 
 \begin{problem}{2.1 Vector Fields}
-    Let $X$ be the vector field
+
+    Let $X$ be the vector field $x\pdv*{x} + y\pdv*{y}$ and $f(x, y, z)$ the function $x^2 + y^2 + z^2$ on $\R^3$.
+    Compute $Xf$.
 \end{problem}
+
+By definition, 
+\begin{equation}
+    (Xf)(x, y, z) = X_{(x, y, z)} f(x, y, z) = x \pdv{f}{x} (x, y, z) + y \pdv{f}{y} (x, y, z) = 2x^2 + 2y^2 .
+\end{equation}
+
+\begin{problem}{2.3. Vector space structure on derivations at a point}
+
+    Let $D$ and $D'$ be derivations at $p$ in $\R^n$, and $c \in \R$. Prove that
+\begin{enumerate}[label=(\alph*)]
+    \item the sum $D + D'$ is a derivation at $p$.
+    \item the scalar multiple $cD$ is a derivation at $p$.
+\end{enumerate}
+\end{problem}
+
+\begin{enumerate}[label=(\alph*)]
+    \item The sum $D + D'$ is a linear map because linear maps are closed under addition. 
+    Thus we only need to show $D + D'$ satifies the Leibniz rule. Thus 
+    \begin{align}
+        (D + D')(fg) &= D(fg) + D'(fg) \\
+        &= (Df) g(p) + f(p)(Dg) + (D'f) g(p) + f(p) (D'g) \\ 
+        &= (Df + D'f)g(p) + f(p)(Dg + D'g) \\ 
+        &= ( (D + D')f ) g(p) + f(p) (D + D')g,
+    \end{align}
+    and we are done.
+
+    \item The scalar multiple $cD$ is also a linear map because linear maps are closed under scalar 
+    multiplication. Also,
+    \begin{align}
+        (cD)(fg) = c((Df)g(p) + f(p)Dg) = ((cD)f) g(p) + f(p) (cD)g .
+    \end{align}
+    Hence $cD$ is a derivation.
+\end{enumerate}
+
+\begin{problem}{2.4. Product of derivations}
+    
+    Let $A$ be an algebra over a field $K$. If $D_1$ and $D_2$ are derivations of $A$, show that $D_1 \circ D_2$ is not
+necessarily a derivation (it is if $D_1$ or $D_2 = 0$), but $D_1 \circ D_2 - D_2 \circ D_1$ is always a derivation of
+$A$.
+\end{problem}
+
+To show $D_1 \circ D_2$ is not a derivation, let $A$ be $C^{\infty}(\R^2)$ over $\R$. 
+Let $D_1 = \pdv*{x}$ and $D_2 = \pdv*{y}$. Let $f(x, y) = x$ and $g(x, y) = y$. Then
+\begin{align}
+    (D_1 \circ D_2)(fg) = ((D_1 \circ D_2)f) g + f(D_1 \circ D_2)g = \left(\pdv{f}{x}{y}\right) g + f \left(\pdv{g}{x}{y}\right) = 0
+\end{align}
+but 
+\begin{align}
+    (D_1 \circ D_2)(fg) = \pdv{xy}{x}{y} = 1 .
+\end{align}
+This is a contradiction, as desired.
+
+To show $D_1 \circ D_2 - D_2 \circ D_1$ is a derivation, we know that composition, addition, and scalar multiplication 
+is closed under linear maps, so it only remains to show the Leibniz rule. Notice 
+\begin{align}
+    (D_1 \circ D_2)(fg) &= D_1((D_2f) g + f D_2g) \\ 
+    &= D_1 ((D_2f) g) + D_1 (f D_2g ) \\ 
+    &= ((D_1 \circ D_2)f) g + (D_2f)(D_1g) + (D_1 f)(D_2g) + f (D_1 \circ D_2)g .
+\end{align}
+Switching $D_1$ and $D_2$, 
+\begin{equation}
+    (D_2 \circ D_1)(fg) = ((D_2 \circ D_1)f) g + (D_1f)(D_2g) + (D_2 f)(D_1g) + f (D_2 \circ D_1)g .
+\end{equation}
+Hence 
+\begin{align}
+    (D_1 \circ D_2 - D_2 \circ D_1)(fg) &= ((D_1 \circ D_2)f) g + (D_2f)(D_1g) + (D_1 f)(D_2g) + f (D_1 \circ D_2)g \\ 
+    &- ((D_2 \circ D_1)f) g - (D_1f)(D_2g) - (D_2 f)(D_1g) - f (D_2 \circ D_1)g  \\ 
+    &= ((D_1 \circ D_2)f) g - ((D_2 \circ D_1)f) g + f (D_1 \circ D_2)g - f (D_2 \circ D_1)g \\ 
+    &= ((D_1 \circ D_2 - D_2 \circ D_1)f) g + f(D_1 \circ D_2 - D_2 \circ D_1)g, 
+\end{align}
+as desired.

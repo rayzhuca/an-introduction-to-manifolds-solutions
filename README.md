@@ -1,4 +1,4 @@
-# Solutions to An Introduction to Manifolds
+# Solutions to _An Introduction to Manifolds_
 
 This is my solutions to _An Introduction to Manifolds_ by Loring W. Tu, second edition.
 

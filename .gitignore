@@ -1,0 +1,41 @@
+# LaTeX intermediate files
+*.aux
+*.bbl
+*.blg
+*.brf
+*.fls
+*.fdb_latexmk
+*.log
+*.nav
+*.out
+*.snm
+*.synctex.gz
+*.toc
+*.vrb
+*.lof
+*.lot
+*.lol
+*.run.xml
+
+# Temporary or backup files
+*~
+*.bak
+*.backup
+*.tmp
+*.swp
+*.swo
+*.DS_Store
+
+# Output files
+*.pdf
+*.dvi
+*.ps
+
+# Mac-specific
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.Spotlight-V100
+.Trashes

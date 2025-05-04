@@ -1,15 +1,14 @@
 \section{Euclidean Spaces}
 
-\subsection{Smooth Functions on a Euclidean Space}
+\begin{problem}{1.2. A $C^\infty$ function very flat at $0$}
 
-\begin{exercise}{1.2}
 Let $f(x)$ be the function on R defined in Example 1.3.
 \begin{enumerate}[label=(\alph*)]
-    \item Show by induction that for $x > 0$ and $k \geq 0$, the kth derivative $f^{(k)}(x)$ is of the form
+    \item Show by induction that for $x > 0$ and $k \geq 0$, the $k$th derivative $f^{(k)}(x)$ is of the form
     $p_{2k}(1/x)e^{-1/x}$ for some polynomial $p_{2k}(y)$ of degree $2k$ in $y$.
     \item Prove that $f$ is $C^\infty$ on $\R$ and that $f^{(k)}(0)=0$ for all $k \geq 0$.
 \end{enumerate}
-\end{exercise}
+\end{problem}
 
 \begin{enumerate}[label=(\alph*)]
 
@@ -44,3 +43,31 @@ Let $f(x)$ be the function on R defined in Example 1.3.
     because $f$ is clearly $C^\infty$ on $(-\infty, 0)$, on $0$ by our previous result, and on $(0, \infty)$ by part (a).
 
 \end{enumerate}
+
+\begin{problem}{1.6. Taylor's theorem with remainder to order 2}
+
+Prove that if \( f : \mathbb{R}^2 \to \mathbb{R} \) is \( C^\infty \), then there exist \( C^\infty \) functions \( g_{11}, g_{12}, g_{22} \) on \( \mathbb{R}^2 \) such that
+\[
+    f(x, y) = f(0,0) + \frac{\partial f}{\partial x}(0,0) x + \frac{\partial f}{\partial y}(0,0) y + x^2 g_{11}(x, y) + xy\, g_{12}\/(x, y) + y^2 g_{22}\/(x, y).
+\]
+\end{problem}
+
+Taylor's theorem with remainder states that there exists $g_1, g_2 \in C^{\infty} (U)$ such that 
+\begin{equation} \label{eq:1-6-a}
+    f(x, y) = f(0, 0) + xg_1(x, y) + yg_1(x, y), \quad g_1(0, 0) = \pdv{f}{x}\/(0, 0), \quad g_2\/(0, 0) = \pdv{f}{y}\/(0, 0) .
+\end{equation}
+
+Applying the same theorem on $g_1$ and $g_2$, we get some $g_{11}, h_{12}, h_{21}, g_{22} \in C^{\infty}$ such that
+\begin{equation} \label{eq:1-6-b}
+    g_1(x, y) = \pdv{f}{x}\/(0, 0) + xg_{11}(x,y) + yh_{12}(x, y), \quad g_{11} = \pdv{g}{x} \/(0, 0), \quad h_{12} = \pdv{g}{y} \/(0, 0)
+\end{equation}
+and
+\begin{equation} \label{eq:1-6-c}
+    g_2(x, y) = \pdv{f}{y}\/(0, 0) + xh_{21}(x,y) + yg_{22}(x, y), \quad h_{21} = \pdv{g}{x} \/(0, 0), \quad g_{22} = \pdv{g}{y} \/(0, 0) .
+\end{equation}
+
+Let $g_{12} = h_{12} + h_{21}$.
+Substituting Equation~\ref{eq:1-6-b} and Equation~\ref{eq:1-6-c} into Equation~\ref{eq:1-6-a}, 
+\begin{equation}
+    f(x, y) = f(0, 0) + \pdv{f}{x}\/(0, 0)x + \pdv{f}{y}\/(0, 0)y + x^2g_{11}(x,y) + xyg_{12}(x, y) + y^2g_{22}(x, y) .
+\end{equation}

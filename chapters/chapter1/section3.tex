@@ -1,0 +1,33 @@
+\section{The Exterior Algebra of Multicovectors}
+
+\begin{exercise}{3.6 (Inversions)}
+    Find the inversions in the permutation $\tau =(1 2 3 4 5)$ of Example 3.5.
+\end{exercise}
+
+Converting the cycle notation into a two-line rotation,
+\begin{equation}
+    \tau = \begin{bmatrix}
+        1 & 2 & 3 & 4 & 5 \\ 
+        2 & 3 & 4 & 5 & 1 
+    \end{bmatrix}
+\end{equation}
+
+There are four inversions, $(2, 1), (3, 1), (4, 1), (5, 1)$.
+
+\begin{exercise}{3.13 (Symmetrizing operator)}
+    Show that the $k$-linear function $Sf$ is symmetric.
+\end{exercise}
+
+Let $\tau \in S_k$ be any permutation, then
+\begin{equation} \label{eq:3-6-a}
+    \tau (Sf) = \tau \sum_{\sigma \in S_k} f(v_{\sigma(1)}, v_{\sigma(2)}, ... v_{\sigma(k)}).
+\end{equation}
+
+Since $\tau \in S_k$, left multiplication by $\tau$ defines a bijection on $S_k$. Thus 
+we can change the summation index in Equation~\ref{eq:3-6-a} by letting $\sigma' = \tau \sigma$. Hence 
+\begin{align}
+    \tau (Sf) &= \tau \sum_{\sigma' \in S_k} f(v_{\tau^{-1}(\sigma'(1))}, v_{\tau^{-1}(\sigma'(2))}, ... v_{\tau^{-1}(\sigma'(k))}) \\ 
+    &= \sum_{\sigma' \in S_k} f(v_{\sigma'(1)}, v_{\sigma'(2)}, ... v_{\sigma'(k)}) \\ 
+    &= Sf.
+\end{align}
+Thus $Sf$ is invariant under any permutation $\tau$, hence symmetric.
